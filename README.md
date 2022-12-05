@@ -3,7 +3,7 @@ fonts for retro gadgets, duh
 
 # how to install
 1. import **tprint.lua** into your gadget
-2. import one of the font files into your gadget
+2. import one of the font files into your gadget, make sure its spritesize is 8x8
 3. in your code, copy the width table and height of the font
 4. also in code, get the spritesheet for the font
 

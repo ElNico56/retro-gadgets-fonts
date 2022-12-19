@@ -12,8 +12,11 @@ local function Tprint (chip:VideoChip, pos:vec2, font:SpriteSheet, txt:string, w
 		elseif type(width) == "table" then
 			w = width[charID] or width._
 		else error("Width must be a number or table") end
-		local basepos = pos + vec2(cur,0) + vec2(0,height*scale*line)
-		chip:RasterSprite(basepos, basepos+vec2(8*scale,0), basepos+vec2(8*scale,8*scale), basepos+vec2(0,8*scale), font, x, y, color.white, color.clear)
+		local topleft = pos + vec2(cur,0) + vec2(0,height*scale*line)
+        local topright = basepos+vec2(8*scale,0)
+        local bottomright = basepos+vec2(8*scale,8*scale)
+        local bottomleft = basepos+vec2(0,8*scale)
+		chip:RasterSprite(topleft, topright, bottomright, bottomleft, font, x, y, color.white, color.clear)
 		cur += w*scale
 		if txt:sub(i,i) == "\n" then line += 1 cur = -1 end
 	end
